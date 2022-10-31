@@ -13,7 +13,8 @@ import (
 )
 
 func main() {
-	port := ":9776"
 
+	port := ":9776"
+	
 	log.Fatal(http.ListenAndServe(port, practice5.Mux(port)))
 }

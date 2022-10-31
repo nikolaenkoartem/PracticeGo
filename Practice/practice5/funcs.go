@@ -82,22 +82,26 @@ func functia1(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, res)
 }
 
-func productsHandler(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	inp := vars["id"]
-	response := fmt.Sprintf("%s", inp)
-	fmt.Fprint(w, response)
+func functia2(w http.ResponseWriter, r *http.Request) {
+	res := menu() +
+		`<p>
+		</br>
+		localhost:9776/func2/ВПИШИТЕ ЗДЕСЬ СВОЮ СТРОКУ ДЛЯ ПРОВЕРКИ
+		</p>`
+
+	fmt.Fprint(w, res)
 }
 
-func functia2(w http.ResponseWriter, r *http.Request) {
-
+func productsHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	inp := vars["inp"]
+	response := fmt.Sprintf("%s", inp)
 	res := menu() +
-		`<p></br></p>` +
-		`<form id="inp"></form>
-		<p><input placeholder="Введите строку" name="user" forms="inp"></p>
-		<p><input type="submit" value="Отправить строку" forms="inp"></p>` +
-		fmt.Sprintf("%v", practice3.Che(productsHandler.productsHandler())) +
-		`<p></br></p>`
+		`<p>
+		</br>
+		Количество чисел в строке равно:
+		</p>` +
+		fmt.Sprintf("%v", practice3.Che(response))
 
 	fmt.Fprint(w, res)
 }
